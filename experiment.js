@@ -160,6 +160,8 @@
         Both descriptions accurately describe the photo. One is the <strong>original</strong>,
         written by a person. The other was created by <strong>translating the original into another
         language and back into English</strong>.</p>
+        <p>Text that has been translated sometimes reads a little differently from text written
+        directly in English. This is called <em>translationese</em>.</p>
         <p>For each photo, choose the description you think is the original.
         Then rate how confident you are, from 1 (just guessing) to 5 (very sure).</p></div>`,
       `<div class="page"><h2>Before you start</h2>
