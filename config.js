@@ -16,7 +16,7 @@ const CONFIG = {
   LIST_ASSIGNMENT: "datapipe",
 
   // From the Prolific study setup page ("completion code").
-  PROLIFIC_COMPLETION_CODE: "REPLACE_ME",
+  PROLIFIC_COMPLETION_CODE: "CE93667W",
 
   // Descriptions can't be chosen until this many ms after a trial appears.
   // Discourages clicking without reading.
