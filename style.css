@@ -1,0 +1,31 @@
+body { background: #fff; color: #222; }
+.jspsych-content { max-width: 1000px; }
+.jspsych-display-element { font-size: 17px; }
+
+.page { max-width: 720px; margin: 0 auto; text-align: left; line-height: 1.55; }
+.page h2 { text-align: center; }
+
+.trial-img, .desc-card, .question { -webkit-user-select: none; user-select: none; }
+.trial-img { display: block; max-width: 100%; max-height: 42vh; margin: 0 auto 12px; border-radius: 4px; }
+.question { font-weight: 600; margin: 8px 0 14px; }
+
+/* the two description cards */
+.jspsych-btn-group-grid { gap: 16px; }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.desc-card {
+  display: block; width: 100%; height: 100%; box-sizing: border-box;
+  text-align: left; white-space: normal; line-height: 1.5;
+  font-size: 16px; padding: 14px 16px; margin: 0;
+  border: 2px solid #ccc; border-radius: 8px; background: #fafafa; color: #222;
+  cursor: pointer;
+}
+.desc-card:hover:not([disabled]) { border-color: #3a6ea5; background: #f0f5fb; }
+.desc-card[disabled] { cursor: wait; opacity: .75; }
+.desc-card .label { display: block; font-weight: 700; margin-bottom: 6px; color: #3a6ea5; }
+.desc-card.chosen { border-color: #3a6ea5; background: #e6effa; opacity: 1; cursor: default; }
+.desc-card.not-chosen { opacity: .45; cursor: default; }
+
+.conf-btn { min-width: 110px; margin: 4px; white-space: normal; }
+.conf-btn small { display: block; font-size: 12px; color: #666; }
+
+.blocked { max-width: 560px; margin: 15vh auto; text-align: center; font-family: sans-serif; line-height: 1.5; }
