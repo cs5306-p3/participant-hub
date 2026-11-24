@@ -157,10 +157,10 @@
     pages: [
       `<div class="page"><h2>Instructions</h2>
         <p>In this study, you'll see a series of photos, each with two short descriptions.
-        Both descriptions accurately describe the photo. One was <strong>written by a person</strong>,
-        and the other was created by <strong>translating that description into another
+        Both descriptions accurately describe the photo. One is the <strong>original</strong>,
+        written by a person. The other was created by <strong>translating the original into another
         language and back into English</strong>.</p>
-        <p>For each photo, choose the description you think is the original, person-written one.
+        <p>For each photo, choose the description you think is the original.
         Then rate how confident you are, from 1 (just guessing) to 5 (very sure).</p></div>`,
       `<div class="page"><h2>Before you start</h2>
         <p>There are ${LIST.trials.length} photos, and the study takes about
@@ -183,7 +183,7 @@
     return {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<img class="trial-img" src="${it.file}" alt="">
-                 <p class="question">Which description was written by a person?</p>`,
+                 <p class="question">Which description is the original?</p>`,
       choices: it.texts,
       button_html: (choice, i) =>
         `<button class="jspsych-btn desc-card"><span class="label">Description ${SIDES[i]}</span>${esc(choice)}</button>`,
@@ -214,7 +214,7 @@
         return `<img class="trial-img" src="${it.file}" alt="">
                 <div class="cards">${cards}</div>
                 <p class="question" style="margin-top:20px">How confident are you that Description
-                ${it.chosen_side} was written by a person?</p>`;
+                ${it.chosen_side} is the original?</p>`;
       },
       choices: ["1", "2", "3", "4", "5"],
       button_html: (c) =>
