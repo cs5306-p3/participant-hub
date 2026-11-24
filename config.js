@@ -2,7 +2,7 @@
 // Study settings: fill these in before launch. See README.md.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  // From pipe.jspsych.org after you link your OSF project.
+  // From pipe.jspsych.org after you create the experiment (Google Drive storage).
   // While it is "REPLACE_ME", data is NOT uploaded; it downloads as a CSV
   // at the end instead (handy for local testing).
   DATAPIPE_EXPERIMENT_ID: "REPLACE_ME",

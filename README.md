@@ -2,7 +2,7 @@
 
 Participants see a photo and two descriptions: the human-written original and a back-translation (EN→ES→EN, EN→JA→EN, or EN→ES→JA→EN). They pick the one they think is original, then rate their confidence from 1 to 5.
 
-Built with jsPsych 8.3 and hosted on GitHub Pages. Data goes to OSF through DataPipe.
+Built with jsPsych 8.3 and hosted on GitHub Pages. Data goes to a private Google Drive folder through DataPipe. (OSF stopped allowing new projects on Nov 16, 2026, so DataPipe's Google Drive option is used instead.)
 
 ## Files
 
@@ -46,8 +46,8 @@ Without a `PROLIFIC_PID` in the URL, it runs in **test mode**. At the end it sho
 ## Launch checklist
 
 1. **GitHub:** create a free organization on github.com with a neutral name, and push this folder to a public repo. Then go to Settings → Pages → Deploy from branch → `main` / root. The URL will be `https://<org>.github.io/<repo>/`.
-2. **OSF:** create a **private** project and add a component for the data.
-3. **DataPipe** (pipe.jspsych.org): log in, link your OSF account, and create an experiment pointed at that component.
+2. **Google Drive:** create a folder for the data (e.g. "CS5306 P3 Data") and share it with your teammates.
+3. **DataPipe** (pipe.jspsych.org): log in, create an experiment with **Google Drive** as the storage, and connect it to that folder.
    - Turn on **data collection**.
    - Turn on **condition assignment** with **6** conditions.
    - Put the experiment ID in `config.js` → `DATAPIPE_EXPERIMENT_ID`.
@@ -58,7 +58,7 @@ Without a `PROLIFIC_PID` in the URL, it runs in **test mode**. At the end it sho
    - Prescreeners: fluent English (or first language English, per your protocol).
    - Places: 36, or a few more to cover rejections.
 5. **Consent:** the consent screen in `experiment.js` uses wording for a class project. Confirm with your instructor that no IRB review is needed, and set `CONTACT_EMAIL`.
-6. **Pilot:** use Prolific's preview, and check that a file appears in OSF with your test ID. Then run about 3 real participants and check the timing. The estimate is 18 minutes (`ESTIMATED_MINUTES` in `config.js`). Set the Prolific time and pay to match what the pilot shows.
+6. **Pilot:** use Prolific's preview, and check that a file appears in the Google Drive folder with your test ID. Then run about 3 real participants and check the timing. The estimate is 18 minutes (`ESTIMATED_MINUTES` in `config.js`). Set the Prolific time and pay to match what the pilot shows.
 
 ### Assigning lists: two options
 
