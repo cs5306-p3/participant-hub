@@ -5,7 +5,7 @@ const CONFIG = {
   // From pipe.jspsych.org after you create the experiment (Google Drive storage).
   // While it is "REPLACE_ME", data is NOT uploaded; it downloads as a CSV
   // at the end instead (handy for local testing).
-  DATAPIPE_EXPERIMENT_ID: "REPLACE_ME",
+  DATAPIPE_EXPERIMENT_ID: "LsyYKTlBocih",
 
   // How participants are assigned to one of the 6 lists, if the URL has no ?list=N.
   //   "datapipe": balanced sequential assignment by DataPipe (turn on
