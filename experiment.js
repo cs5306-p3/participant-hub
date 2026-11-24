@@ -150,12 +150,10 @@
   };
 
   const instructions = {
-    type: jsPsychInstructions,
-    show_clickable_nav: true,
-    allow_backward: true,
+    type: jsPsychHtmlButtonResponse,
+    choices: ["Start"],
     data: { task: "instructions" },
-    pages: [
-      `<div class="page"><h2>Instructions</h2>
+    stimulus: `<div class="page"><h2>Instructions</h2>
         <p>In this study, you'll see a series of photos, each with two short descriptions.
         Both descriptions accurately describe the photo. One is the <strong>original</strong>,
         written by a person. The other was created by <strong>translating the original into another
@@ -163,14 +161,10 @@
         <p>Text that has been translated sometimes reads a little differently from text written
         directly in English. This is called <em>translationese</em>.</p>
         <p>For each photo, choose the description you think is the original.
-        Then rate how confident you are, from 1 (just guessing) to 5 (very sure).</p></div>`,
-      `<div class="page"><h2>Before you start</h2>
-        <p>There are ${LIST.trials.length} photos, and the study takes about
-        ${CONFIG.ESTIMATED_MINUTES} minutes.</p>
-        <p>Please read each description carefully. The descriptions can be clicked after a few seconds.</p>
-        <p>A few questions check attention, and submissions that fail them may not be approved.</p>
-        <p>Click <strong>Next</strong> to begin.</p></div>`,
-    ],
+        Then rate how confident you are, from 1 (just guessing) to 5 (very sure).</p>
+        <p>There are ${LIST.trials.length} photos. Please read each description carefully; they
+        can be clicked after a few seconds. A few questions check attention, and submissions
+        that fail them may not be approved.</p></div>`,
   };
 
   const preload = {
