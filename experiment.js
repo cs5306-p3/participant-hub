@@ -186,15 +186,22 @@
       button_layout: "grid",
       grid_rows: 1,
       grid_columns: 2,
-      enable_button_after: CONFIG.MIN_VIEW_MS,
+      // reading lock only on the first view, not when coming back to change an answer
+      enable_button_after: () => (it.n_changes ? 0 : CONFIG.MIN_VIEW_MS),
       data: { task: "choice", item_index: idx },
-      on_start: () => { it.blur_start = blurCount; },
+      on_start: () => {
+        if (it.blur_start === undefined) it.blur_start = blurCount;
+        it.wants_change = false;
+      },
       on_finish: (d) => {
         it.chosen_side = SIDES[d.response];
-        it.rt_choice = d.rt;
+        if (it.first_choice_side === undefined) it.first_choice_side = it.chosen_side;
+        it.rt_choice = (it.rt_choice || 0) + d.rt; // total time spent choosing, across any changes
       },
     };
   }
+
+  const CHANGE_LABEL = "← Change my answer";
 
   function confidenceTrial(it, idx) {
     const labels = { 1: "Just guessing", 2: "", 3: "", 4: "", 5: "Very sure" };
@@ -212,11 +219,23 @@
                 <p class="question" style="margin-top:20px">How confident are you that Description
                 ${it.chosen_side} is the original?</p>`;
       },
-      choices: ["1", "2", "3", "4", "5"],
+      choices: ["1", "2", "3", "4", "5", CHANGE_LABEL],
       button_html: (c) =>
-        `<button class="jspsych-btn conf-btn">${c}<small>${labels[c] || "&nbsp;"}</small></button>`,
+        c === CHANGE_LABEL
+          ? `<button class="jspsych-btn change-btn">${c}</button>`
+          : `<button class="jspsych-btn conf-btn">${c}<small>${labels[c] || "&nbsp;"}</small></button>`,
+      button_layout: "grid",
+      grid_rows: null,
+      grid_columns: 5,
       data: { task: "response", item_index: idx },
       on_finish: (d) => {
+        if (d.response === 5) {
+          // participant wants to go back and pick the other description
+          d.task = "change_answer";
+          it.n_changes = (it.n_changes || 0) + 1;
+          it.wants_change = true;
+          return;
+        }
         const confidence = d.response + 1;
         Object.assign(d, {
           trial_kind: it.kind,
@@ -229,6 +248,8 @@
           confidence: confidence,
           rt_choice: it.rt_choice,
           rt_confidence: d.rt,
+          n_changes: it.n_changes || 0,
+          first_choice_side: it.first_choice_side,
           left_page_count: blurCount - it.blur_start,
           attention_pass: it.kind === "attention" ? it.chosen_side === it.target_side : null,
           attention_conf_pass: it.kind === "attention" ? confidence === 2 : null,
@@ -251,7 +272,12 @@
   };
 
   const trialNodes = items.flatMap((it, idx) => {
-    const nodes = [choiceTrial(it, idx), confidenceTrial(it, idx)];
+    const nodes = [
+      {
+        timeline: [choiceTrial(it, idx), confidenceTrial(it, idx)],
+        loop_function: () => it.wants_change, // repeat if they clicked "Change my answer"
+      },
+    ];
     if (idx === breakAfter) nodes.push(breakScreen);
     return nodes;
   });

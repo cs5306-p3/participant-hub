@@ -81,6 +81,7 @@ There is one CSV per participant: `<PROLIFIC_PID>_<SESSION_ID>.csv`. **Analyze r
 | `confidence` | 1–5 |
 | `rt_choice`, `rt_confidence` | Response times in ms (choice time includes the 3 s lock) |
 | `attention_pass`, `attention_conf_pass` | Picked the instructed description / chose confidence 2 |
+| `n_changes`, `first_choice_side` | How many times they used "Change my answer" on this trial, and which side they picked first (`chosen_side` is the final answer; `rt_choice` is total choosing time across changes) |
 | `left_page_count` | How many times the participant switched away from the tab/window during this trial |
 | `text_A`, `text_B` | The exact text shown |
 
