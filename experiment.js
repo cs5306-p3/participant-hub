@@ -161,7 +161,8 @@
         <p>Text that has been translated sometimes reads a little differently from text written
         directly in English. This is called <em>translationese</em>.</p>
         <p>For each photo, choose the description you think is the original.
-        Then rate how confident you are, from 1 (just guessing) to 5 (very sure).</p>
+        Then rate how confident you are, from 1 (just guessing) to 5 (very sure).
+        If you change your mind, you can go back and pick the other description before rating.</p>
         <p>There are ${LIST.trials.length} photos. Please read each description carefully; they
         can be clicked after a few seconds. A few questions check attention, and submissions
         that fail them may not be approved.</p></div>`,
