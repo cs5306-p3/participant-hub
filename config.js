@@ -24,5 +24,5 @@ const CONFIG = {
 
   // Shown in the consent screen.
   CONTACT_EMAIL: "tr433@cornell.edu",
-  ESTIMATED_MINUTES: 18,
+  ESTIMATED_MINUTES: 20,
 };
