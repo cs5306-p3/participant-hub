@@ -24,7 +24,7 @@ Built with jsPsych 8.3 and hosted on GitHub Pages. Data goes to a private Google
 - Across all 6 lists, every one of the 180 image–variant pairs appears exactly once. **36 participants, 6 per list, gives exactly 6 judgments per pair.**
 - The original appears on the left in exactly 15 of a participant's 30 trials. Trial order is random.
 - There are 3 attention checks, after trials 8, 17 and 26. Each tells the participant to pick a specific description and choose confidence 2. The images come from the other half, so they never repeat a trial image.
-- Descriptions can't be clicked until 3 s after a trial appears (`MIN_VIEW_MS`).
+- Descriptions can't be clicked until 5 s after a trial appears (`MIN_VIEW_MS`); a hint says so on screen.
 - Phones and screens narrower than 700 px are blocked.
 
 If you change `translations.csv`, re-run:

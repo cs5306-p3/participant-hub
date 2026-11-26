@@ -163,8 +163,9 @@
         <p>For each photo, choose the description you think is the original.
         Then rate how confident you are, from 1 (just guessing) to 5 (very sure).
         If you change your mind, you can go back and pick the other description before rating.</p>
-        <p>There are ${LIST.trials.length} photos. Please read each description carefully; they
-        can be clicked after a few seconds. A few questions check attention, and submissions
+        <p>There are ${LIST.trials.length} photos. Please read each description carefully. To give
+        you time to read, the descriptions become clickable after about
+        ${Math.round(CONFIG.MIN_VIEW_MS / 1000)} seconds. A few questions check attention, and submissions
         that fail them may not be approved.</p></div>`,
   };
 
@@ -180,7 +181,16 @@
     return {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<img class="trial-img" src="${it.file}" alt="">
-                 <p class="question">Which description is the original?</p>`,
+                 <p class="question">Which description is the original?</p>
+                 <p id="lock-hint" class="lock-hint">&nbsp;</p>`,
+      on_load: () => {
+        const ms = it.n_changes ? 0 : CONFIG.MIN_VIEW_MS;
+        const hint = document.getElementById("lock-hint");
+        if (ms > 0 && hint) {
+          hint.textContent = "Take a moment to read. You can choose in a few seconds…";
+          setTimeout(() => { hint.innerHTML = "&nbsp;"; }, ms);
+        }
+      },
       choices: it.texts,
       button_html: (choice, i) =>
         `<button class="jspsych-btn desc-card"><span class="label">Description ${SIDES[i]}</span>${esc(choice)}</button>`,

@@ -6,6 +6,7 @@ body { background: #fff; color: #222; }
 .page h2 { text-align: center; }
 
 .trial-img, .desc-card, .question { -webkit-user-select: none; user-select: none; }
+.lock-hint { margin: -8px 0 10px; font-size: 14px; color: #777; font-style: italic; }
 .trial-img { display: block; max-width: 100%; max-height: 42vh; margin: 0 auto 12px; border-radius: 4px; }
 .question { font-weight: 600; margin: 8px 0 14px; }
 

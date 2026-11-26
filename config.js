@@ -20,7 +20,7 @@ const CONFIG = {
 
   // Descriptions can't be chosen until this many ms after a trial appears.
   // Discourages clicking without reading.
-  MIN_VIEW_MS: 3000,
+  MIN_VIEW_MS: 5000,
 
   // Shown in the consent screen.
   CONTACT_EMAIL: "tr433@cornell.edu",
